@@ -13,11 +13,9 @@ public class AirportDAO {
         this.database = (new Link(0)).connect();
     }
 
-    public String selectAirport(Airport airport) throws SQLException {
-        String query = "select customerName from customers where customerNumber = 124;";
+    public ResultSet selectAirports() throws SQLException {
+        String query = "SELECT * FROM airport;";
         PreparedStatement command = database.prepareStatement(query);
-        ResultSet result = command.executeQuery();
-        result.next();
-        return result.getString("customerName");
+        return command.executeQuery();
     }
 }
