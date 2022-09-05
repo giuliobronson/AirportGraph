@@ -47,6 +47,7 @@ public class Graph<T> {
 
         /*Algoritmo de Dijkstra*/
         PriorityQueue<Node<T>> priorityQueue = new PriorityQueue<>();
+        ArrayList<T> path = new ArrayList<>();
         priorityQueue.add(new Node<>(origin, .0));
         while(!priorityQueue.isEmpty()) {
             double distance = -priorityQueue.peek().weight;
@@ -57,6 +58,7 @@ public class Graph<T> {
                 T child = node.key;
                 if(distances.get(child) > distances.get(root) + w) {
                     distances.put(child, distances.get(root) + w);
+                    path.add(node.key);
                     priorityQueue.add(new Node<>(child, -distances.get(child)));
                 }
             }
