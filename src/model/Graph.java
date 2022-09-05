@@ -38,6 +38,14 @@ public class Graph<T> {
     }
 
     public double route(T origin, T destination) {
+        /*Salva o valor do peso da aresta entre origem e destino*/
+        Node<T> temp = map.get(origin).stream().filter(target -> destination.equals(target.key)).findAny().orElse(null);
+        double value = temp.weight;
+
+        /*Remove a aresta entre aresta e destino*/
+        map.get(origin).removeIf(target -> destination.equals(target.key));
+        map.get(destination).removeIf(target -> origin.equals(target.key));
+
         /*Inicializa Map com as distâncias nó até a origem*/
         Map<T, Double> distances = new HashMap<>();
         for(T node : map.keySet()) {
@@ -63,6 +71,10 @@ public class Graph<T> {
                 }
             }
         }
+
+        /*Adiciona a aresta entre origem e destino novamente*/
+        addEdge(origin, destination, value);
+
         return distances.get(destination);
     }
 }
