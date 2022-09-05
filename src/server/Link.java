@@ -12,7 +12,7 @@ public class Link {
     public Link(int status) {
         if(status == 0) {
             this.server = "localhost";
-            this.database = "classicmodels";
+            this.database = "airport_graph";
             this.user = "giuliobronson";
             this.password = "bronson_IME24";
             this.gate = 3306;
