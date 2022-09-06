@@ -152,6 +152,10 @@
     <MESSAGE value="Restrição de realizar conexões no menor caminho" />
     <option name="LAST_COMMIT_MESSAGE" value="Restrição de realizar conexões no menor caminho" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primeiro commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primeiro commit" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>

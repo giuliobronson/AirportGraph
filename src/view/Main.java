@@ -4,12 +4,14 @@ import model.Airport;
 import model.AirportDAO;
 import model.Graph;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Graph<Integer> graph = new Graph<>();
+        Graph<Airport> graph = new Graph<>();
+        AirportDAO airportDAO = new AirportDAO();
 
         graph.addEdge(0, 1, 1);
         graph.addEdge(0, 2, 1);
