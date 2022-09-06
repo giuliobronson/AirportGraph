@@ -20,7 +20,7 @@ public class Graph<T> {
 
     static class ShotestPath<T> {
         double distance;
-        HashMap<T, T> path = new HashMap<>();
+        HashMap<T, T> path;
 
         public ShotestPath(double distance, HashMap<T, T> path) {
             this.distance = distance;
@@ -29,6 +29,10 @@ public class Graph<T> {
     }
 
     private final Map<T, List<Node<T>>> map = new HashMap<>();
+
+    public Set<T> getVertexes() {
+        return map.keySet();
+    }
 
     public void addVertex(T V) {
         map.put(V, new LinkedList<>());
