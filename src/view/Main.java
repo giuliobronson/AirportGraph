@@ -10,24 +10,41 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        Graph<Airport> graph = new Graph<>();
+        /*Cria um objeto aeroporto para cada instância da tabela*/
+        Graph<Airport> airportGraph = new Graph<>();
         AirportDAO airportDAO = new AirportDAO();
+        ResultSet resultSet = airportDAO.selectAirports();
+        while (resultSet.next()) {
+            Airport airport = new Airport(resultSet.getString("iata"),
+                    resultSet.getString("name"),
+                    resultSet.getString("city"),
+                    resultSet.getString("state"),
+                    resultSet.getDouble("latitud"),
+                    resultSet.getDouble("longitud"));
+            airportGraph.addVertex(airport);
+        }
 
-        graph.addEdge(0, 1, 1);
-        graph.addEdge(0, 2, 1);
-        graph.addEdge(0, 3, 1);
-        graph.addEdge(1, 2, 1);
-        graph.addEdge(2, 3, 1);
-        graph.addEdge(3, 1, 1);
+        /*Gera um grafo completo*/
+        for(Airport origin : airportGraph.getVertexes()) {
+            for(Airport neighbor : airportGraph.getVertexes()) {
+                if(origin.equals(neighbor)) continue;
+                airportGraph.addEdge(origin, neighbor, origin.distanceTo(neighbor));
+            }
+        }
 
-        System.out.println(graph.distance(0, 3));
+        Airport airportOrigin = null, airportDestination = null;
+        for(Airport target : airportGraph.getVertexes()) {
+            if(target.getIata().equals("FOR")) airportOrigin = target;
+            if(target.getIata().equals("GIG")) airportDestination = target;
+        }
 
-        HashMap<Integer, Integer> path = graph.route(0, 3);
-        System.out.print(3);
-        int temp = path.getOrDefault(3, -1);
-        while(temp != -1) {
-            System.out.print(" <- " + temp);
-            temp = path.getOrDefault(temp, -1);
+        System.out.println(airportGraph.distance(airportOrigin, airportDestination));
+        HashMap<Airport, Airport> path = airportGraph.route(airportOrigin, airportDestination);
+        Airport tmp = path.getOrDefault(airportDestination, null);
+        System.out.print(airportDestination.getIata());
+        while(tmp != null) {
+            System.out.print(" <- " + tmp.getIata());
+            tmp = path.getOrDefault(tmp, null);
         }
     }
 }

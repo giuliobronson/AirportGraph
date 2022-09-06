@@ -1,6 +1,6 @@
 package model;
 
-public class Airport implements Comparable<Airport>{
+public class Airport {
     private String iata, name, city, state;
     private double latidud, longitud;
 
@@ -61,8 +61,29 @@ public class Airport implements Comparable<Airport>{
         this.longitud = longitud;
     }
 
+    public double distanceTo(Airport airport) {
+        double dlon = airport.longitud - this.longitud;
+        double dlat = airport.latidud - this.latidud;
+        double tmp = Math.pow(Math.sin(dlat / 2), 2)
+                + Math.cos(this.latidud) * Math.cos(airport.latidud)
+                * Math.pow(Math.sin(dlon / 2), 2);
+
+        double theta = 2 * Math.asin(Math.sqrt(tmp));
+
+        double r = 6371;
+
+        return theta * r;
+    }
+
     @Override
-    public int compareTo(Airport tAirport) {
-        return this.iata.compareTo(tAirport.iata);
+    public boolean equals(Object o) {
+        if(o == this) {
+            return true;
+        }
+        if(!(o instanceof Airport)) {
+            return false;
+        }
+        Airport airport = (Airport) o;
+        return this.iata.equals(airport.iata);
     }
 }

@@ -18,4 +18,12 @@ public class AirportDAO {
         PreparedStatement command = database.prepareStatement(query);
         return command.executeQuery();
     }
+
+    public ResultSet selectAirport(String iata) throws SQLException {
+        String query = "SELECT * FROM airport WHERE iata = ?";
+        PreparedStatement command = database.prepareStatement(query);
+        command.setString(1, iata);
+        ResultSet result = command.executeQuery(); result.next();
+        return result;
+    }
 }
