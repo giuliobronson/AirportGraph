@@ -6,21 +6,28 @@ import model.Graph;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
         Graph<Airport> graph = new Graph<>();
         AirportDAO airportDAO = new AirportDAO();
 
-        ResultSet result = airportDAO.selectAirports();
-        while(result.next()) {
-            Airport airport = new Airport(result.getString("iata"),
-                    result.getString("name"),
-                    result.getString("city"),
-                    result.getString("state"),
-                    result.getDouble("latitud"),
-                    result.getDouble("longitud"));
-            graph.addVertex(airport);
+        graph.addEdge(0, 1, 1);
+        graph.addEdge(0, 2, 1);
+        graph.addEdge(0, 3, 1);
+        graph.addEdge(1, 2, 1);
+        graph.addEdge(2, 3, 1);
+        graph.addEdge(3, 1, 1);
+
+        System.out.println(graph.distance(0, 3));
+
+        HashMap<Integer, Integer> path = graph.route(0, 3);
+        System.out.print(3);
+        int temp = path.getOrDefault(3, -1);
+        while(temp != -1) {
+            System.out.print(" <- " + temp);
+            temp = path.getOrDefault(temp, -1);
         }
     }
 }

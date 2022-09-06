@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Primeiro commit">
+    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Restrição de realizar conexões no menor caminho">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Airport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AirportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AirportDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Link.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -74,14 +72,21 @@
       <option name="presentableId" value="Default" />
       <updated>1660854621500</updated>
     </task>
-    <task id="LOCAL-00001" summary="Primeiro commit">
-      <created>1662077980224</created>
+    <task id="LOCAL-00001" summary="Método para recuperar menor rota">
+      <created>1662413933518</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1662077980224</updated>
+      <updated>1662413933518</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Restrição de realizar conexões no menor caminho">
+      <created>1662414553876</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662414553876</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,11 +94,63 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="graph" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="graph" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="airport_dao" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Método para recuperar menor rota" />
+    <MESSAGE value="Restrição de realizar conexões no menor caminho" />
+    <option name="LAST_COMMIT_MESSAGE" value="Restrição de realizar conexões no menor caminho" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primeiro commit" />
