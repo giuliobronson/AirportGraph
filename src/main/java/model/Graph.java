@@ -18,11 +18,11 @@ public class Graph<T> {
         }
     }
 
-    static class ShotestPath<T> {
+    static class ShortestPath<T> {
         double distance;
         HashMap<T, T> path;
 
-        public ShotestPath(double distance, HashMap<T, T> path) {
+        public ShortestPath(double distance, HashMap<T, T> path) {
             this.distance = distance;
             this.path = path;
         }
@@ -52,7 +52,7 @@ public class Graph<T> {
         map.get(origin).add(end);
     }
 
-    private ShotestPath<T> dijkstra(T origin, T destination) {
+    private ShortestPath<T> dijkstra(T origin, T destination) {
         /*Inicializa Map com as distâncias nó até a origem*/
         Map<T, Double> distances = new HashMap<>();
         for (T node : map.keySet()) {
@@ -80,7 +80,7 @@ public class Graph<T> {
             }
         }
 
-        return new ShotestPath<>(distances.get(destination), path);
+        return new ShortestPath<>(distances.get(destination), path);
     }
 
     public double distance(T origin, T destination) {
@@ -93,12 +93,12 @@ public class Graph<T> {
         map.get(destination).removeIf(target -> origin.equals(target.key));
 
         /*Algoritmo de Dijkstra*/
-        ShotestPath<T> shotestPath = dijkstra(origin, destination);
+        ShortestPath<T> shortestPath = dijkstra(origin, destination);
 
         /*Reinsere a aresta removida*/
         addEdge(origin, destination, weight);
 
-        return shotestPath.distance;
+        return shortestPath.distance;
     }
 
     public HashMap<T, T> route(T origin, T destination) {
@@ -111,11 +111,11 @@ public class Graph<T> {
         map.get(destination).removeIf(target -> origin.equals(target.key));
 
         /*Algoritmo de Dijkstra*/
-        ShotestPath<T> shotestPath = dijkstra(origin, destination);
+        ShortestPath<T> shortestPath = dijkstra(origin, destination);
 
         /*Reinsere a aresta removida*/
         addEdge(origin, destination, weight);
 
-        return shotestPath.path;
+        return shortestPath.path;
     }
 }

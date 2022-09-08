@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AirportDAO {
-    private Connection database;
+    private final Connection database;
 
     public AirportDAO() throws SQLException {
         this.database = (new Link(0)).connect();
@@ -19,11 +19,24 @@ public class AirportDAO {
         return command.executeQuery();
     }
 
-    public ResultSet selectAirport(String iata) throws SQLException {
+    public Airport selectAirport(String iata) throws SQLException {
         String query = "SELECT * FROM airport WHERE iata = ?";
         PreparedStatement command = database.prepareStatement(query);
         command.setString(1, iata);
         ResultSet result = command.executeQuery(); result.next();
-        return result;
+        return new Airport(result.getString("iata"),
+                result.getString("name"),
+                result.getString("city"),
+                result.getString("state"),
+                result.getDouble("latitud"),
+                result.getDouble("longitud"));
+    }
+
+    public ResultSet selectAirport(String city, String state) throws SQLException {
+        String query = "SELECT * FROM airport WHERE city = ? AND state = ?";
+        PreparedStatement command = database.prepareStatement(query);
+        command.setString(1, city);
+        command.setString(2, state);
+        return command.executeQuery();
     }
 }
