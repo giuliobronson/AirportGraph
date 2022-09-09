@@ -4,15 +4,15 @@ import java.util.Objects;
 
 public class Airport {
     private String iata, name, city, state;
-    private double latidud, longitud;
+    private double latidude, longitude;
 
-    public Airport(String iata, String name, String city, String state, double latidud, double longitud) {
+    public Airport(String iata, String name, String city, String state, double latidude, double longitude) {
         this.iata = iata;
         this.name = name;
         this.city = city;
         this.state = state;
-        this.latidud = latidud;
-        this.longitud = longitud;
+        this.latidude = latidude;
+        this.longitude = longitude;
     }
 
     public String getIata() {
@@ -21,10 +21,10 @@ public class Airport {
 
     public double distanceTo(Airport airport) {
         double R = 6371;
-        double dlon = (airport.longitud - this.longitud) * Math.PI / 180;
-        double dlat = (airport.latidud - this.latidud) * Math.PI / 180;
+        double dlon = (airport.longitude - this.longitude) * Math.PI / 180;
+        double dlat = (airport.latidude - this.latidude) * Math.PI / 180;
         double a = Math.pow(Math.sin(dlat / 2), 2)
-                + Math.cos(this.latidud * Math.PI / 180) * Math.cos(airport.latidud * Math.PI / 180)
+                + Math.cos(this.latidude * Math.PI / 180) * Math.cos(airport.latidude * Math.PI / 180)
                 * Math.pow(Math.sin(dlon / 2), 2);
         double c = 2 * Math.asin(Math.sqrt(a));
         return c * R;

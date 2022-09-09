@@ -14,13 +14,13 @@ public class AirportDAO {
     }
 
     public ResultSet selectAirports() throws SQLException {
-        String query = "SELECT * FROM airport;";
+        String query = "SELECT * FROM airport ORDER BY 1;";
         PreparedStatement command = database.prepareStatement(query);
         return command.executeQuery();
     }
 
     public Airport selectAirport(String iata) throws SQLException {
-        String query = "SELECT * FROM airport WHERE iata = ?";
+        String query = "SELECT * FROM airport WHERE iata = ?;";
         PreparedStatement command = database.prepareStatement(query);
         command.setString(1, iata);
         ResultSet result = command.executeQuery(); result.next();
@@ -28,12 +28,12 @@ public class AirportDAO {
                 result.getString("name"),
                 result.getString("city"),
                 result.getString("state"),
-                result.getDouble("latitud"),
-                result.getDouble("longitud"));
+                result.getDouble("latitude"),
+                result.getDouble("longitude"));
     }
 
     public ResultSet selectAirport(String city, String state) throws SQLException {
-        String query = "SELECT * FROM airport WHERE city = ? AND state = ?";
+        String query = "SELECT * FROM airport WHERE city = ? AND state = ? ORDER BY 1;";
         PreparedStatement command = database.prepareStatement(query);
         command.setString(1, city);
         command.setString(2, state);
