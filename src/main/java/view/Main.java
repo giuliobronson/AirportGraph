@@ -64,7 +64,7 @@ public class Main {
             }
             double pathLength = airportGraph.distance(airportOrigin, airportDestination);
 
-            routeDAO.insertRoute(String.valueOf(pathString), pathLength);
+            routeDAO.insertRoute(origin, destination, String.valueOf(pathString), pathLength); // TODO: Tratar exceção chaves duplicadas
             System.out.format("Route: " + pathString + " | " + "Travel lenght: " + "%.2f" + "\n", pathLength);
             System.out.println();
 

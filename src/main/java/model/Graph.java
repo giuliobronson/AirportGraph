@@ -54,7 +54,7 @@ public class Graph<T> {
 
     private ShortestPath<T> dijkstra(T origin, T destination) {
         /*Inicializa Map com as distâncias nó até a origem*/
-        Map<T, Double> distances = new HashMap<>();
+        HashMap<T, Double> distances = new HashMap<>();
         for (T node : map.keySet()) {
             distances.put(node, Double.POSITIVE_INFINITY); // Nós restantes têm distâncias iniciais infinitas
         }
