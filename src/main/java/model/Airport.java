@@ -19,50 +19,6 @@ public class Airport {
         return iata;
     }
 
-    public void setIata(String iata) {
-        this.iata = iata;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public double getLatidud() {
-        return latidud;
-    }
-
-    public void setLatidud(double latidud) {
-        this.latidud = latidud;
-    }
-
-    public double getLongitud() {
-        return longitud;
-    }
-
-    public void setLongitud(double longitud) {
-        this.longitud = longitud;
-    }
-
     public double distanceTo(Airport airport) {
         double R = 6371;
         double dlon = (airport.longitud - this.longitud) * Math.PI / 180;
