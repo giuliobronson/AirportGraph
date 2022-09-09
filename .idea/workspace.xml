@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Método de recuperar menor caminho">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Tratamento de inserções para rotas duplicadas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Airport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/AirportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AirportDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/RouteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/RouteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="route" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -135,7 +130,28 @@
       <option name="project" value="LOCAL" />
       <updated>1662601694676</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tratamento de inserções para rotas duplicadas">
+      <created>1662748655008</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662748655008</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Tratamento de inserções para rotas duplicadas">
+      <created>1662748860945</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662748860945</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Tratamento de inserções para rotas duplicadas">
+      <created>1662748869441</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662748869441</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,11 +215,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primeiro commit" />
     <MESSAGE value="Método de recuperar menor caminho" />
-    <option name="LAST_COMMIT_MESSAGE" value="Método de recuperar menor caminho" />
+    <MESSAGE value="Tratamento de inserções para rotas duplicadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tratamento de inserções para rotas duplicadas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />

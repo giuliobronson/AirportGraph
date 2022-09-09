@@ -86,7 +86,10 @@ public class Graph<T> {
     public double distance(T origin, T destination) {
         /*Guarda o valor do peso da aresta*/
         Node<T> node = map.get(origin).stream().filter(target -> destination.equals(target.key)).findAny().orElse(null);
-        double weight = node.weight; // TODO: tratar execeção. Considerar grafo completo?
+        double weight = 0;
+        if (node != null) {
+            weight = node.weight;
+        }
 
         /*Remove a aresta que conecta origem e destino*/
         map.get(origin).removeIf(target -> destination.equals(target.key));
@@ -104,7 +107,10 @@ public class Graph<T> {
     public HashMap<T, T> route(T origin, T destination) {
         /*Guarda o valor do peso da aresta*/
         Node<T> node = map.get(origin).stream().filter(target -> destination.equals(target.key)).findAny().orElse(null);
-        double weight = node.weight; // TODO: tratar execeção. Considerar grafo completo?
+        double weight = 0;
+        if (node != null) {
+            weight = node.weight;
+        }
 
         /*Remove a aresta que conecta origem e destino*/
         map.get(origin).removeIf(target -> destination.equals(target.key));

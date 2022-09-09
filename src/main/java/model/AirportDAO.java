@@ -25,9 +25,6 @@ public class AirportDAO {
         command.setString(1, iata);
         ResultSet result = command.executeQuery(); result.next();
         return new Airport(result.getString("iata"),
-                result.getString("name"),
-                result.getString("city"),
-                result.getString("state"),
                 result.getDouble("latitude"),
                 result.getDouble("longitude"));
     }

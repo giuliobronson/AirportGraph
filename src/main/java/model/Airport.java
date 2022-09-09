@@ -3,14 +3,11 @@ package model;
 import java.util.Objects;
 
 public class Airport {
-    private String iata, name, city, state;
-    private double latidude, longitude;
+    private final String iata;
+    private final double latidude, longitude;
 
-    public Airport(String iata, String name, String city, String state, double latidude, double longitude) {
+    public Airport(String iata, double latidude, double longitude) {
         this.iata = iata;
-        this.name = name;
-        this.city = city;
-        this.state = state;
         this.latidude = latidude;
         this.longitude = longitude;
     }
