@@ -9,7 +9,6 @@ import tech.tablesaw.api.Table;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -23,15 +22,15 @@ public class Main {
                     airports.getString("name"),
                     airports.getString("city"),
                     airports.getString("state"),
-                    airports.getDouble("latitud"),
-                    airports.getDouble("longitud"));
+                    airports.getDouble("latitude"),
+                    airports.getDouble("longitude"));
             airportGraph.addVertex(airport);
         }
 
         /*Gera um grafo completo*/
-        for(Airport origin : airportGraph.getVertexes()) {
-            for(Airport neighbor : airportGraph.getVertexes()) {
-                if(origin.equals(neighbor)) continue;
+        for (Airport origin : airportGraph.getVertexes()) {
+            for (Airport neighbor : airportGraph.getVertexes()) {
+                if (origin.equals(neighbor)) continue;
                 airportGraph.addEdge(origin, neighbor, origin.distanceTo(neighbor));
             }
         }
@@ -39,9 +38,8 @@ public class Main {
         /*Início do menu*/
         Scanner input = new Scanner(System.in);
         Table table = Table.read().db(airportDAO.selectAirports(), "Airports");
-        table.removeColumns("latitud", "longitud");
-        String answer = "y";
-        while(Objects.equals(answer, "y")) {
+        table.removeColumns("latitude", "longitude"); String answer = "y";
+        while (answer.equalsIgnoreCase("y")) {
             System.out.println(table.print(40));
 
             System.out.println();
@@ -55,16 +53,12 @@ public class Main {
             Airport airportDestination = airportDAO.selectAirport(destination);
 
             HashMap<Airport, Airport> path = airportGraph.route(airportOrigin, airportDestination);
-            Airport airport = path.getOrDefault(airportDestination, null);
-            RouteDAO routeDAO = new RouteDAO();
-            StringBuilder pathString = new StringBuilder(airportDestination.getIata());
-            while(airport != null) {
-                pathString.append(", ").append(airport.getIata());
-                airport = path.getOrDefault(airport, null);
-            }
+            String connection = path.get(airportDestination).getIata();
+            String pathString = origin + " -> " + connection + " -> " + destination;
             double pathLength = airportGraph.distance(airportOrigin, airportDestination);
 
-            routeDAO.insertRoute(origin, destination, String.valueOf(pathString), pathLength); // TODO: Tratar exceção chaves duplicadas
+            RouteDAO routeDAO = new RouteDAO();
+            routeDAO.insertRoute(origin, destination, connection, pathLength);
             System.out.format("Route: " + pathString + " | " + "Travel lenght: " + "%.2f" + "\n", pathLength);
             System.out.println();
 
