@@ -43,7 +43,7 @@ public class Main {
                 System.out.println();
                 System.out.println("Search airport by location");
                 System.out.print("Enter a city: ");
-                String city = input.nextLine();
+                String city = input.nextLine(); // TODO: Verificar quebras de linha
                 System.out.print("Enter a state: ");
                 String state = input.nextLine();
 
@@ -57,15 +57,18 @@ public class Main {
 
             System.out.println();
             System.out.print("What is the origin airport code? ");
-            String origin = input.next();
+            String origin = input.nextLine();
             System.out.print("What is the destination airport code? ");
-            String destination = input.next();
+            String destination = input.nextLine();
             System.out.println();
 
-            try {
-                Airport airportOrigin = airportDAO.selectAirport(origin);
-                Airport airportDestination = airportDAO.selectAirport(destination);
+            Airport airportOrigin = airportGraph.getVertexes().stream().filter(target -> target.getIata().equals(origin)).findAny().orElse(null);
+            Airport airportDestination = airportGraph.getVertexes().stream().filter(target -> target.getIata().equals(destination)).findAny().orElse(null);
 
+            if (airportOrigin == null || airportDestination == null) {
+                System.out.println("Airport it's is not referenced");
+            }
+            else {
                 HashMap<Airport, Airport> path = airportGraph.route(airportOrigin, airportDestination);
                 String connection = path.get(airportDestination).getIata();
                 String pathString = origin + " -> " + connection + " -> " + destination;
@@ -75,12 +78,9 @@ public class Main {
                 routeDAO.insertRoute(origin, destination, connection, pathLength);
                 System.out.format("Route: " + pathString + " | " + "Travel lenght: " + "%.2f" + "\n", pathLength);
             }
-            catch (SQLException e) {
-                System.out.println("Airport it's is not referenced");
-            }
 
             System.out.println();
             System.out.print("Wish to continue? [y/n] ");
-        } while (input.next().equalsIgnoreCase("y"));
+        } while (input.nextLine().equalsIgnoreCase("y"));
     }
 }
