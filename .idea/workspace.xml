@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Tratamento de inserções para rotas duplicadas">
+    <list default="true" id="40fab690-c843-4b20-be48-7e75a334332b" name="Changes" comment="Inserção da seleção por cidade e estado no menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Airport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/AirportDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/AirportDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="route" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -151,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662748869441</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Inserção da seleção por cidade e estado no menu">
+      <created>1662760475510</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662760475510</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Inserção da seleção por cidade e estado no menu">
+      <created>1662760482872</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662760482873</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,7 +228,8 @@
     <MESSAGE value="Primeiro commit" />
     <MESSAGE value="Método de recuperar menor caminho" />
     <MESSAGE value="Tratamento de inserções para rotas duplicadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tratamento de inserções para rotas duplicadas" />
+    <MESSAGE value="Inserção da seleção por cidade e estado no menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserção da seleção por cidade e estado no menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

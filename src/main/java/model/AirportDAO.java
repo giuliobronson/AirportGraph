@@ -19,16 +19,6 @@ public class AirportDAO {
         return command.executeQuery();
     }
 
-    public Airport selectAirport(String iata) throws SQLException {
-        String query = "SELECT * FROM airport WHERE iata = ?;";
-        PreparedStatement command = database.prepareStatement(query);
-        command.setString(1, iata);
-        ResultSet result = command.executeQuery(); result.next();
-        return new Airport(result.getString("iata"),
-                result.getDouble("latitude"),
-                result.getDouble("longitude"));
-    }
-
     public ResultSet selectAirport(String city, String state) throws SQLException {
         String query = "SELECT * FROM airport WHERE city = ? AND state = ? ORDER BY 1;";
         PreparedStatement command = database.prepareStatement(query);
