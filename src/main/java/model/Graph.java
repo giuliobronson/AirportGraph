@@ -20,7 +20,7 @@ public class Graph<T> {
 
     static class ShortestPath<T> {
         double distance;
-        HashMap<T, T> path;
+        HashMap<T, T> path; // HashMap que guarda o percuso de menor distância até a origem.
 
         public ShortestPath(double distance, HashMap<T, T> path) {
             this.distance = distance;
@@ -28,6 +28,10 @@ public class Graph<T> {
         }
     }
 
+    /**
+     * HashMap que contém como chave objeto do tipo especificado na instanciação do grafo
+     * e como valor uma lista de adjacência de objetos Node.
+     */
     private final Map<T, List<Node<T>>> map = new HashMap<>();
 
     public Set<T> getVertexes() {
@@ -39,13 +43,13 @@ public class Graph<T> {
     }
 
     public void addEdge(T origin, T destination, double weight) {
-        /*Adiciona os vértices nas pontas da aresta caso estes não tenham sido gerados*/
+        // Verifica se os nós já foram adicionados ao Set de vétices
         if (!map.containsKey(origin))
             addVertex(origin);
         if (!map.containsKey(destination))
             addVertex(destination);
 
-        /*Atuliza a lista de adijacência dos nós envolvidos na aresta*/
+        // Adiciona cada nó na lista de adjacência um do outro
         Node<T> start = new Node<>(origin, weight);
         map.get(destination).add(start);
         Node<T> end = new Node<>(destination, weight);

@@ -27,6 +27,10 @@ public class Airport {
         return c * R;
     }
 
+    /**
+     * Métodos necessários de serem implementados para determinar como dois aeroportos serão
+     * comparados
+     */
     @Override
     public boolean equals(Object o) {
         if(o == this) {

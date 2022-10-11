@@ -1,3 +1,8 @@
+/**
+ * @author giuliobronson
+ * @since sexta-feira, 16 de setembro de 2022
+ */
+
 package view;
 
 import model.Airport;
@@ -43,7 +48,7 @@ public class Main {
                 System.out.println();
                 System.out.println("Search airport by location");
                 System.out.print("Enter a city: ");
-                String city = input.nextLine(); // TODO: Verificar quebras de linha
+                String city = input.nextLine();
                 System.out.print("Enter a state: ");
                 String state = input.nextLine();
 
